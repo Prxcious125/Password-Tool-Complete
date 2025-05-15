@@ -1,0 +1,7 @@
+# .gitattributes
+* text=auto
+*.php text
+*.blade.php text
+*.json text
+*.js text
+*.css text
