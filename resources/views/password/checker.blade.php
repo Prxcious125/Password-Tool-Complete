@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="flex flex-col items-center justify-center px-4 sm:px-0 space-y-4 mt-10 bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/a-dashboard-interface-for-a-secure.jpeg') }}');">
+
 <div class="max-w-md mx-auto p-6 mt-10 bg-white rounded-lg shadow-md">
     <h1 class="text-2xl font-bold text-gray-800 mb-6">Password Security Checker</h1>
     
@@ -65,7 +67,7 @@
     </div>
     @endif
 </div>
-<div class="min-h-screen bg-gray-100 py-12 px-4">
+<div class=" bg-gray-100 py-12 px-4">
     <div class="max-w-3xl mx-auto bg-white shadow-xl rounded-lg p-8 text-gray-800 space-y-6">
         <h2 class="text-2xl font-bold text-center text-blue-600">Password Strength & Cybersecurity Awareness</h2>
 
@@ -110,6 +112,7 @@
             Stay alert. Stay secure. Protect your digital life.
         </p>
     </div>
+</div>
 </div>
 {{-- < class="min-h-screen bg-gray-100 py-12 px-4">
     <div class="max-w-3xl mx-auto bg-white shadow-xl rounded-lg p-8 text-gray-800 space-y-6">

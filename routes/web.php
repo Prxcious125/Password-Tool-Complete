@@ -20,11 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard'); // Your actual dashboard view
+    })->name('dashboard');
+});
 
-Route::middleware('auth')->group(function () {
+// Make sure your home route also points to dashboard
+Route::redirect('/', '/dashboard');
+Route::middleware(['auth','verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -32,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
 
 // Password Tools Routes
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     // Password Tools
     Route::get('/password/checker', [PasswordController::class, 'showChecker'])->name('password.checker');
     Route::post('/password/check', [PasswordController::class, 'checkStrength'])->name('password.check');

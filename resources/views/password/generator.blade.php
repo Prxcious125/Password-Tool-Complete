@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex flex-col items-center justify-center px-4 sm:px-0 space-y-4 mt-10">
+<div class="flex flex-col items-center justify-center px-4 sm:px-0 space-y-4 mt-10 bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/background.jpeg') }}');">
 
     <!-- Password Generator Box -->
     <div class="w-full max-w-md bg-white p-4 rounded-lg shadow-md">
@@ -100,4 +100,15 @@
         </p>
     </div>
 </div>
+<script>
+function copyToClipboard(elementId) {
+    const input = document.getElementById(elementId);
+    input.select();
+    input.setSelectionRange(0, 99999); // For mobile
+
+    navigator.clipboard.writeText(input.value)
+        .then(() => alert("Password copied!"))
+        .catch(err => alert("Copy failed: " + err));
+}
+</script>
 @endsection
